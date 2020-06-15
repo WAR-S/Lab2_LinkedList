@@ -23,7 +23,7 @@ HEADERS += \
     LinkedList.h \
     mainwindow.h
 
-FORMS += \
+FORMS += \ 
     mainwindow.ui
 
 # Default rules for deployment.

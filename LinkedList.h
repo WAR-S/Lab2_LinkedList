@@ -34,79 +34,47 @@ public:
                 }
             }
             last->child = newItem;
-
+            
         }
-
-
         m_size++;
-
     }
     void remove (int index)
     {
         SItem* last;
         last = head;
-       if(index == 0){}
-       else
-       {
-           for(int i=1;i<index;i++)
-           {
-             last = last->child;
-           }
-       }
-        if(last->child->child != nullptr)
+        
+        if(index == 0)
         {
-            SItem* rm = last->child;
-            last->child = last->child->child;
-            delete rm;
-
+            SItem *temp = head->child;
+            delete head;
+            head = temp;
         }
         else
         {
-            delete last->child;
-            last->child = nullptr;
+            for(int i=1;i<index;i++)
+            {
+                last = last->child;
+            }
+            
+            if(last->child->child != nullptr)
+            {
+                SItem* rm = last->child;
+                last->child = last->child->child;
+                delete rm;
+                
+            }
+            else
+            {
+                delete last->child;
+                last->child = nullptr;
+            }
         }
-
-
+        
+        
         m_size--;
     }
     int at(int index)
     {
         SItem* last;
         last = head;
-        if(index == 0) return last->value;
-        else
-        {
-            for(int i=1;i<=index;i++)
-            {
-               last = last->child;
-            }
-        }
-        return last->value;
-    }
-    int size()
-    {
-        return m_size;
-    }
-
-
-private:
-    SItem* head = nullptr;
-    int m_size=0;
-};
-
-#endif // LINKEDLIST_H
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

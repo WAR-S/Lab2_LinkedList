@@ -16,6 +16,7 @@ public:
     ~MainWindow();
 
 
+
 private slots:
     void on_pushButton_clicked();
 
@@ -23,12 +24,8 @@ private slots:
 
     void on_pushButton_2_clicked();
 
-
-
-
 private:
     Ui::MainWindow *ui;
     LinkedList list;
 };
 #endif // MAINWINDOW_H
-
